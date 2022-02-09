@@ -19,6 +19,7 @@ phases:
   pre_build:
     commands:
       - echo Logging in to Amazon EKS...
+      - aws sts get-caller-identity
       - aws eks  update-kubeconfig --region us-east-1 --name cicd-demo
 #       - aws eks  update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
       - echo check config 
