@@ -8,20 +8,22 @@ data:
     - groups:
       - system:bootstrappers
       - system:nodes
-      rolearn: arn:aws:iam::245243128874:role/kshav-node
+      rolearn: arn:aws:iam::245243128874:role/eksctl-cicd-demo12-nodegroup-ng-1-NodeInstanceRole-D9VWY9FKUWVX
       username: system:node:{{EC2PrivateDNSName}}
-    - rolearn: arn:aws:iam::245243128874:role/service-role/codebuild-cicddemobuild-service-role
-      username: codebuild-cicddemobuild-service-role
+    - rolearn: arn:aws:iam::245243128874:role/CodeBuildKubectlRole
+      username: CodeBuildKubectlRole
       groups:
       - system:masters
+  mapUsers: |
+    - userarn: arn:aws:iam::245243128874:user/keshav@veersatech.com
+      username: keshav@veersatech.com
+      groups:
+      - system:masters
+    []
 kind: ConfigMap
 metadata:
-  annotations:
-    kubectl.kubernetes.io/last-applied-configuration: |
-      {"apiVersion":"v1","data":{"mapRoles":"- groups:\n  - system:bootstrappers\n  - system:nodes\n  rolearn: arn:aws:iam::245243128874:role/kshav-node\n  username: system:node:{{EC2PrivateDNSName}}\n"},"kind":"ConfigMap","metadata":{"annotations":{},"creationTimestamp":"2022-02-11T10:55:17Z","name":"aws-auth","namespace":"kube-system","resourceVersion":"69340","uid":"7fc616cf-2ec8-4b57-bd67-78b2a7c38448"}}
-  creationTimestamp: "2022-02-11T10:55:17Z"
+  creationTimestamp: "2022-02-23T05:56:02Z"
   name: aws-auth
   namespace: kube-system
-  resourceVersion: "75948"
-  uid: 7fc616cf-2ec8-4b57-bd67-78b2a7c38448
-~                                                                                                                                                                           ~                                                       
+  resourceVersion: "1879"
+  uid: d4d8acbf-c5f3-414c-8578-848634468de1
