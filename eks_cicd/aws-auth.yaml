@@ -10,15 +10,21 @@ data:
       - system:nodes
       rolearn: arn:aws:iam::245243128874:role/eksctl-cicd-demo12-nodegroup-ng-1-NodeInstanceRole-D9VWY9FKUWVX
       username: system:node:{{EC2PrivateDNSName}}
-    - rolearn: arn:aws:iam::245243128874:role/CodeBuildKubectlRole
-      username: CodeBuildKubectlRole
-      groups:
+    - groups:
       - system:masters
+      rolearn: arn:aws:iam::245243128874:role/service-role/codebuild-cicddemobuildproject-service-role
+      username: codebuild-cicddemobuildproject-service-role
+    - groups:
+      - system:masters
+      rolearn: arn:aws:iam::245243128874:role/CodeBuildKubectlRole
+      username: CodeBuildKubectlRole
   mapUsers: |
     - userarn: arn:aws:iam::245243128874:user/keshav@veersatech.com
       username: keshav@veersatech.com
       groups:
       - system:masters
+  mapAccounts: |
+    - "245243128874"
     []
 kind: ConfigMap
 metadata:
