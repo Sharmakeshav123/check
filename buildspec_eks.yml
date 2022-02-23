@@ -20,7 +20,7 @@ phases:
     commands:
       - echo Logging in to Amazon EKS...
       - aws sts get-caller-identity
-      -  aws eks --region us-east-1 update-kubeconfig --name cicd-demo1
+      -  aws eks --region us-east-1 update-kubeconfig --name cicd-demo12
 #       - aws eks  update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
       - echo check config 
       - kubectl config view --minify
