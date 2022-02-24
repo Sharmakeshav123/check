@@ -20,9 +20,8 @@ phases:
     commands:
       - echo Logging in to Amazon EKS...
       - aws sts get-caller-identity
-      - eksctl create cluster -f eks_cicd/cluster.yaml
-      -  aws eks --region us-east-1 update-kubeconfig --name cicd-demo12
-#       - aws eks  update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
+      
+      - aws eks  update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
       - echo check config 
       - kubectl config view --minify
       - echo check kubectl access
