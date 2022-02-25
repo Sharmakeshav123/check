@@ -20,7 +20,7 @@ phases:
     commands:
       - echo Logging in to Amazon EKS...
       - aws sts get-caller-identity
-      - eksctl create iamidentitymapping --cluster cicd-demo12 --arn arn:aws:iam::245243128874:role/CodeBuildKubectlRole --group system:masters --username CodeBuildKubectlRole --region us-east-1
+      - eksctl create iamidentitymapping --cluster cicd-demo12 --arn arn:aws:iam::245243128874:role/service-role/codebuild-cicddemobuildproject-service-role --group system:masters --username codebuild-cicddemobuildproject-service-role --region us-east-1
       
       - aws eks  update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
       - echo check config 
