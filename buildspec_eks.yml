@@ -25,7 +25,7 @@ phases:
       #- eksctl create iamidentitymapping --cluster cicd-demo12 --arn arn:aws:iam::245243128874:role/service-role/codebuild-cicddemobuildproject-service-role --group system:masters --username codebuild-cicddemobuildproject-service-role --region us-east-1
       
       - aws eks  update-kubeconfig --region $AWS_DEFAULT_REGION --name $AWS_CLUSTER_NAME
-      - eksctl create iamidentitymapping --cluster Test --arn arn:aws:iam::245243128874:role/EKSPipeline_role --group system:masters --username EKSPipeline_role --region us-east-1
+#     #- eksctl create iamidentitymapping --cluster  --arn arn:aws:iam::245243128874:role/EKSPipeline_role --group system:masters --username EKSPipeline_role --region us-east-1
       - echo check config 
       - kubectl config view --minify
       - echo check kubectl access
